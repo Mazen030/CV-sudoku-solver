@@ -37,3 +37,29 @@ We used the dimensions of the binary thresholded image to calculate the size of 
 We employed nested loops to iterate through the grid, extracting and storing each sub-tile in the number_tiles list.
 We created a 9x9 subplot grid for visualization, ensuring each subplot corresponds to a sub-tile.
 We iterated through the subplots, displaying each sub-tile using a grayscale colormap for better visualization to be ready to go to the OCR.<br>
+**2. Phase (2)**<br>
+**2.1 Basic OCR with pattern matching**
+Template matching is used in various projects and applications across different domains due to its simplicity and effectiveness in certain scenarios. Here are some reasons why template matching is employed in projects:<br>
+Object Detection: Template matching is commonly used for object detection in images. It helps identify instances of a specific object (template) within a larger image.
+Pattern Recognition: When the pattern or object being searched for is well-defined and has a consistent appearance, template matching can be a suitable choice for recognizing and locating these patterns.<br>
+
+OCR (Optical Character Recognition): Template matching can be used in OCR applications to locate and recognize characters or digits in images. Each character is treated as a template, and matching is performed against the input image. and many other programs<br>
+Template Matching Algorithm :<br>
+Template matching is used in various projects and applications across different domains due to its simplicity and effectiveness in certain scenarios. Here are some reasons why template matching is employed in projects:
+Object Detection: Template matching is commonly used for object detection in images. It helps identify instances of a specific object (template) within a larger image.
+Pattern Recognition: When the pattern or object being searched for is well-defined and has a consistent appearance, template matching can be a suitable choice for recognizing and locating these patterns.
+OCR (Optical Character Recognition): Template matching can be used in OCR applications to locate and recognize characters or digits in images. Each character is treated as a template, and matching is performed against the input image.
+How Does template matching algorithm works ?
+Template matching is a technique used in image processing to locate a template (a small image or pattern) within a larger image. The process involves comparing the template with sub-regions (windows) of the larger image to find the region where the template best matches. Here's a general overview of how template matching algorithms work:<br>
+**1)Select a Template**:<br>
+Choose a small image or pattern that represents what you want to find in the larger image. This is your template.<br>
+**2)Define a Similarity Metric**:<br>
+Choose a similarity metric or a measure of how well the template matches a particular region in the larger image<br>
+**3)Slide the Template**:
+Move the template across the larger image by sliding it pixel by pixel or in larger steps. At each position, calculate the similarity metric for the overlapping region.<br>
+**4) Find the Best Match**:<br>
+Keep track of the position where the similarity metric is maximized. This position represents the location in the larger image where the template best matches.<br>
+**5)Threshold or Normalize**:<br>
+Optionally, apply a threshold or normalization to the similarity metric to enhance the accuracy of the match or to filter out weaker matches.
+**6)Output Result**:<br>
+The output of the template matching algorithm is often a map of similarity scores or the coordinates of the best match. This information can be used to identify the location of the template in the larger image
