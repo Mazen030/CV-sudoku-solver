@@ -5,6 +5,7 @@ General techniques used along the processing<br>
 Converting the Sudoku image to greyscale simplifies the information to a single intensity channel, reducing computational complexity and focusing on luminance variations.<br>
 -**Applying median filter**<br>
 Median filtering helps reduce noise by replacing each pixel value with the median value in its local neighborhood. This is particularly useful for smoothing the image and enhancing the visibility of Sudoku grid lines and numbers.<br>
+![image](https://github.com/Mazen030/CV-sudoku-solver/assets/93229175/8a586876-bb0e-4af7-ad1f-88bed854a705)<br>
 -**Apply sharpening**<br>
 Sharpening techniques enhance the edges in the image, making the Sudoku grid lines and numbers more distinct. This aids in better feature extraction and can improve the overall quality of the image.<br>
 -**Applying Contrast Limited Adaptive Histogram Equalization**<br>
@@ -13,11 +14,14 @@ CLAHE is beneficial for enhancing local contrast in an image. It divides the ima
 Gamma correction adjusts the intensity values in the image to improve its appearance on different devices. It can be applied to correct non-linearities in the display, ensuring that the Sudoku image is represented accurately.<br>
 -**Applying Histogram Equalization**
 Histogram Equalization is a global enhancement technique that redistributes intensity values across the entire image. While it can enhance contrast, it might amplify noise, which is why CLAHE is often preferred for Sudoku images.<br>
+
+![image](https://github.com/Mazen030/CV-sudoku-solver/assets/93229175/6879a195-aa52-4bd2-afe2-7afa2f4e9865)<br>
 -**Guassian Blur**
 Gaussian blur is useful for smoothing the image, reducing noise, and suppressing fine details. It can be applied as a preprocessing step to simplify the image and prepare it for subsequent processing stages.<br>
 -**Thresholding**
 Thresholding is employed to segment the image into binary regions (foreground and background). It is crucial for extracting the Sudoku grid and numbers from the background, aiding in subsequent image analysis and recognition tasks
 We choose adaptive thresholding over global thresholding in this step. Adaptive thresholding offers superior performance as it dynamically adjusts to changes in light intensity across the image. Unlike global thresholding, which sets a single threshold for the entire image and may lead to the loss of details in areas with varying illumination, adaptive thresholding calculates different thresholds for different regions. This adaptability ensures better preservation of image information, making it the preferred choice for scenarios with uneven lighting conditions .<br>
+![image](https://github.com/Mazen030/CV-sudoku-solver/assets/93229175/643c9307-a371-46aa-a3dc-c8c67170ec09)<br>
 -**Morphological operations**
 They are essential components in image processing, particularly in tasks such as Sudoku image analysis. These operations involve the manipulation and analysis of the geometric structure of an image.<br>
 -**Closing**:
@@ -30,9 +34,11 @@ It is particularly useful in scenarios where noise removal is crucial, yet the o
 After converting each image to greyscale , we employ an initial differentiation among images based on their mean intensities, recognizing the necessity for individualized calibration of the constant term "c" subtracted from the weighted mean in the thresholding process. Additionally, the determination of optimal block sizes for thresholding is acknowledged as a critical hyperparameter, and a systematic tuning approach is undertaken to refine these parameters for each distinct image. This meticulous parameter tuning process ensures the adaptability of the thresholding methodology to the specific characteristics of each image, thereby enhancing the overall effectiveness of the image processing pipeline.<br>
 **1.2 corners identification**
 We detect contours in a binary thresholded image, identify the largest contour (assumed to be the outer frame), reorder its points, draws the reordered contour, and apply a perspective transformation to obtain a bird's-eye view.<br>
+![image](https://github.com/Mazen030/CV-sudoku-solver/assets/93229175/92a7d9b9-7d48-48d8-bf87-90a577f90366)<br>
 **1.3 Outer frame isolation**
 After getting the right corners, we straighten the image.
 It’s is likely used to obtain a "bird's-eye view" or top-down perspective of an image. This transformation is often applied to correct or alter the perspective of an image, making it appear as if it were captured from above, like a bird flying over the scene.<br>
+![image](https://github.com/Mazen030/CV-sudoku-solver/assets/93229175/98865372-0630-4e93-ba05-88ddbe97a2b3)<br>
 **1.4 Grid straightening into a square** :
 We used the dimensions of the binary thresholded image to calculate the size of each sub-tile, ensuring an even division of the image into a 9x9 grid.
 We employed nested loops to iterate through the grid, extracting and storing each sub-tile in the number_tiles list.
@@ -56,6 +62,7 @@ Template matching is a technique used in image processing to locate a template (
 Choose a small image or pattern that represents what you want to find in the larger image. This is your template.<br>
 **2)Define a Similarity Metric**:<br>
 Choose a similarity metric or a measure of how well the template matches a particular region in the larger image<br>
+![image](https://github.com/Mazen030/CV-sudoku-solver/assets/93229175/b102ddab-a0eb-4471-a685-364652855729)<br>
 **3)Slide the Template**:
 Move the template across the larger image by sliding it pixel by pixel or in larger steps. At each position, calculate the similarity metric for the overlapping region.<br>
 **4) Find the Best Match**:<br>
@@ -63,4 +70,5 @@ Keep track of the position where the similarity metric is maximized. This positi
 **5)Threshold or Normalize**:<br>
 Optionally, apply a threshold or normalization to the similarity metric to enhance the accuracy of the match or to filter out weaker matches.
 **6)Output Result**:<br>
-The output of the template matching algorithm is often a map of similarity scores or the coordinates of the best match. This information can be used to identify the location of the template in the larger image
+The output of the template matching algorithm is often a map of similarity scores or the coordinates of the best match. This information can be used to identify the location of the template in the larger image<br>
+![image](https://github.com/Mazen030/CV-sudoku-solver/assets/93229175/60082f49-45d0-4957-a324-68840f1d50e4)
