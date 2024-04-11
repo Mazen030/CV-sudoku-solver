@@ -1,6 +1,7 @@
 **1. Preprocessing of the captured image:**<br>
 General techniques used along the processing<br>
 -**Converting the image to greyscale**<br>
+![image](https://github.com/Mazen030/CV-sudoku-solver/assets/93229175/6db532b5-0208-47c8-acc6-25706c89333a)<br>
 Converting the Sudoku image to greyscale simplifies the information to a single intensity channel, reducing computational complexity and focusing on luminance variations.<br>
 -**Applying median filter**<br>
 Median filtering helps reduce noise by replacing each pixel value with the median value in its local neighborhood. This is particularly useful for smoothing the image and enhancing the visibility of Sudoku grid lines and numbers.<br>
