@@ -71,4 +71,6 @@ Keep track of the position where the similarity metric is maximized. This positi
 Optionally, apply a threshold or normalization to the similarity metric to enhance the accuracy of the match or to filter out weaker matches.
 **6)Output Result**:<br>
 The output of the template matching algorithm is often a map of similarity scores or the coordinates of the best match. This information can be used to identify the location of the template in the larger image<br>
-![image](https://github.com/Mazen030/CV-sudoku-solver/assets/93229175/60082f49-45d0-4957-a324-68840f1d50e4)
+![image](https://github.com/Mazen030/CV-sudoku-solver/assets/93229175/60082f49-45d0-4957-a324-68840f1d50e4)<br>
+**Special credits**:Hassan Eltobgy,Zeina Hesham,Mariam Diaa,Abdelrahman Hassan
+
